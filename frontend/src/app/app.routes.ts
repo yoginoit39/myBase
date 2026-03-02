@@ -21,5 +21,9 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/project/project.component').then(m => m.ProjectComponent),
     canActivate: [authGuard],
   },
+  {
+    path: 'auth/callback',
+    loadComponent: () => import('./pages/auth-callback/auth-callback.component').then(m => m.AuthCallbackComponent),
+  },
   { path: '**', redirectTo: 'dashboard' },
 ];

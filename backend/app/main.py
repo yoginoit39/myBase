@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
 from app.config import get_settings
 from app.database import engine, Base
 from app.models import user, project  # noqa: ensure models are registered
@@ -8,6 +9,22 @@ from app.routers import auth, projects, tables, data, storage
 settings = get_settings()
 
 Base.metadata.create_all(bind=engine)
+
+# Migration: allow NULL password_hash for GitHub OAuth users
+if not settings.DATABASE_URL.startswith("sqlite"):
+    with engine.begin() as conn:
+        try:
+            conn.execute(text("ALTER TABLE users ALTER COLUMN password_hash DROP NOT NULL"))
+        except Exception:
+            pass
+        try:
+            conn.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS github_id VARCHAR UNIQUE"))
+        except Exception:
+            pass
+        try:
+            conn.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS avatar_url VARCHAR"))
+        except Exception:
+            pass
 
 app = FastAPI(
     title="MyBase API",

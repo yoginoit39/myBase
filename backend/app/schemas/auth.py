@@ -22,6 +22,7 @@ class UserResponse(BaseModel):
     id: int
     email: str
     is_active: bool
+    avatar_url: Optional[str] = None
     created_at: datetime
 
     class Config:

@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     R2_SECRET_ACCESS_KEY: str = ""
     R2_BUCKET_NAME: str = "mybase-storage"
 
+    GITHUB_CLIENT_ID: str = ""
+    GITHUB_CLIENT_SECRET: str = ""
+
     FRONTEND_URL: str = ""
     CORS_ORIGINS: List[str] = ["http://localhost:4200"]
 

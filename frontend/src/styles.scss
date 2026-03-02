@@ -1,0 +1,121 @@
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme((
+    color: (primary: mat.$azure-palette, tertiary: mat.$blue-palette),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  color-scheme: dark;
+  background-color: #0a0f1e;
+  color: #f1f5f9;
+  font-family: 'Inter', 'Roboto', sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+* { box-sizing: border-box; }
+
+/* ── Global Form Fields ── */
+.mat-mdc-form-field {
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    border-color: #1f2937 !important;
+  }
+  &:hover .mdc-notched-outline__leading,
+  &:hover .mdc-notched-outline__notch,
+  &:hover .mdc-notched-outline__trailing {
+    border-color: #374151 !important;
+  }
+  &.mat-focused .mdc-notched-outline__leading,
+  &.mat-focused .mdc-notched-outline__notch,
+  &.mat-focused .mdc-notched-outline__trailing {
+    border-color: #6366f1 !important;
+  }
+  .mat-mdc-input-element { color: #f1f5f9 !important; }
+  .mat-mdc-floating-label { color: #6b7280 !important; }
+  .mdc-text-field { background: #111827 !important; border-radius: 10px !important; }
+}
+
+/* ── Dark Dialog ── */
+.dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+  background: #111827 !important;
+  border: 1px solid #1f2937;
+  border-radius: 16px !important;
+}
+.dark-dialog .mat-mdc-dialog-title { color: #f1f5f9 !important; }
+.dark-dialog .mat-mdc-dialog-content { color: #d1d5db; }
+
+/* ── Tabs ── */
+.mat-mdc-tab { color: #6b7280 !important; }
+.mat-mdc-tab.mdc-tab--active { color: #6366f1 !important; }
+.mat-mdc-tab-header { border-bottom: 1px solid #1f2937; }
+.mdc-tab-indicator__content--underline { border-color: #6366f1 !important; }
+
+/* ── Buttons ── */
+button.mat-mdc-raised-button[color="primary"] {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+  transition: all 0.2s !important;
+  &:hover { box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45) !important; transform: translateY(-1px); }
+}
+button.mat-mdc-outlined-button { border-radius: 10px !important; border-color: #374151 !important; color: #9ca3af !important; }
+button.mat-mdc-button { color: #9ca3af !important; border-radius: 8px !important; }
+button.mat-mdc-icon-button { color: #6b7280 !important; }
+
+/* ── Snackbar ── */
+.mat-mdc-snack-bar-container { background: #1f2937 !important; color: #f1f5f9 !important; border-radius: 10px !important; }
+
+/* ── Select ── */
+.mat-mdc-select-value { color: #f1f5f9 !important; }
+.mat-mdc-option { background: #111827 !important; color: #f1f5f9 !important; }
+.mat-mdc-option:hover { background: #1f2937 !important; }
+.mat-mdc-select-panel { background: #111827 !important; border: 1px solid #1f2937 !important; border-radius: 10px !important; }
+
+/* ── Checkbox ── */
+.mat-mdc-checkbox .mdc-checkbox__background { border-color: #374151 !important; }
+
+/* ── Table ── */
+.mat-mdc-table { background: transparent !important; }
+.mat-mdc-header-row { background: #0d1526 !important; }
+.mat-mdc-header-cell { color: #6b7280 !important; font-size: 11px !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.8px !important; border-color: #1f2937 !important; }
+.mat-mdc-row { border-color: #1f2937 !important; transition: background 0.15s !important; }
+.mat-mdc-row:hover { background: #111827 !important; }
+.mat-mdc-cell { color: #d1d5db !important; border-color: #1f2937 !important; font-size: 13px !important; }
+
+/* ── Toolbar ── */
+.mat-toolbar { background: rgba(10,15,30,0.9) !important; backdrop-filter: blur(12px); border-bottom: 1px solid #1f2937 !important; }
+
+/* ── Chip ── */
+.mat-mdc-chip { background: #1f2937 !important; color: #9ca3af !important; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+/* ── Gradient Text Utility ── */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass Card Utility ── */
+.glass-card {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+}

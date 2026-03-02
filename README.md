@@ -1,6 +1,6 @@
 # MyBase
 
-Your own Supabase-like backend platform — databases, REST APIs, file storage, and authentication, all in one app you fully own and deploy yourself.
+MyBase is a full-stack backend-as-a-service platform I built from scratch. It lets users create isolated backend projects where each project gets its own PostgreSQL database, auto-generated REST API, and file storage. Through a clean dashboard, users can create tables with custom column types, insert and manage data through a visual editor, and instantly query their data from any external app using a project API key. Authentication supports both email/password and GitHub OAuth. The entire stack is self-hosted Angular frontend on Vercel, FastAPI backend on Render, PostgreSQL on Neon, and file storage on Cloudflare R2.
 
 **Live demo:** [my-base-xi.vercel.app](https://my-base-xi.vercel.app)
 
